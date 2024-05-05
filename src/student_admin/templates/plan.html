@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'plan.css' %}">
+    {% include 'navbar.html'%}
+    <title>Plan</title>
+</head>
+<body>
+    <div class="tab">
+        <button class="tablinks" onclick="openPlan(event, 'Plan_A')" id="defaultOpen">Plan A</button>
+        <button class="tablinks" onclick="openPlan(event, 'Plan_B')">Plan B</button>
+        <button class="tablinks" onclick="openPlan(event, 'Plan_C')">Plan C</button>
+    </div>
+
+    <div id="Plan_A" class="tabcontent">
+        <div class="outer-box">
+            <div class="year-container">
+                <p class="yearlabeltop">Year 1</p>
+                <div class="inner-box" id="year_1_plan_a">
+                    <div class="fall-box1">
+                        <p class="semesterlabel">Fall</p>
+                        
+                        {% for sort_key, sort_value in sort.items %}
+                        {% for plan_key, plan_value in planA.items %}
+                            {% if sort_value < 7 and plan_key == sort_key %}
+                                <div class="division">
+                                    {{ plan_value.2 }}
+                                    <form method = "post">
+                                        {% csrf_token %}
+                                        <input type = hidden name = "plan" value = "A" />
+                                        <input type = hidden name = "course" value = "{{ plan_value.0 }}">
+                                        <input type = hidden name = "semester" value = "Fall">
+                                        <input type = hidden name = "position" value = "{{ plan_key }}">
+                                        {% if plan_value.0 != '' %}
+                                            <button type = "submit" class = "x"  ><img class = "x_img" src="{% static 'img/x.svg.png' %}"></button>
+                                        {% endif %}
+                                    </form>
+                                </div>
+    
+                            
+                            {% endif %}
+                        {% endfor %}
+                        {% endfor %}
+                    </div>
+
+                    <div class="spring-box1">
+                        <p class="semesterlabel">Spring</p>
+                        {% for sort_key, sort_value in sort.items %}
+                        {% for plan_key, plan_value in planA.items %}
+                            {% if sort_value > 6 and sort_value < 14 and plan_key == sort_key %}
+                            <div class="division">{{ plan_value.2 }}
+                                <form method = "post">
+                                    {% csrf_token %}
+                                    <input type = hidden name = "plan" value = "A" />
+                                    <input type = hidden name = "course" value = "{{ plan_value.0 }}">
+                                    <input type = hidden name = "semester" value = "Spring">
+                                    {% if plan_value.0 != '' %}
+                                        <button type = "submit" class = "x"  ><img class = "x_img" src="{% static 'img/x.svg.png' %}"></button>
+                                    {% endif %}
+                                </form>
+                            </div>
+                            {% endif %}
+                        {% endfor %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="year-container">
+                <p class="yearlabeltop">Year 2</p>
+                <div class="inner-box" id="year_2_plan_a">
+                    <div class="fall-box2">
+                        <p class="semesterlabel">Fall</p>
+                        {% for sort_key, sort_value in sort.items %}
+                            {% for plan_key, plan_value in planA.items %}
+                                {% if sort_value > 13 and sort_value < 21 and plan_key == sort_key %}
+                                    <div class="division">{{ plan_value.2 }}
+                                        <form method = "post">
+                                            {% csrf_token %}
+                                            <input type = hidden name = "plan" value = "A" />
+                                            <input type = hidden name = "course" value = "{{ plan_value.0 }}">
+                                            <input type = hidden name = "semester" value = "Fall">
+                                            {% if plan_value.0 != '' %}
+                                                <button type = "submit" class = "x"  ><img class = "x_img" src="{% static 'img/x.svg.png' %}"></button>
+                                            {% endif %}
+                                        </form>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        {% endfor %}
+                    </div>
+                    <div class="spring-box2">
+                        <p class="semesterlabel">Spring</p>
+                        {% for sort_key, sort_value in sort.items %}
+                            {% for plan_key, plan_value in planA.items %}
+                                {% if sort_value > 20 and sort_value < 28 and plan_key == sort_key %}
+                                    <div class="division">{{ plan_value.2 }}
+                                        <form method = "post">
+                                            {% csrf_token %}
+                                            <input type = hidden name = "plan" value = "A" />
+                                            <input type = hidden name = "course" value = "{{ plan_value.0 }}">
+                                            <input type = hidden name = "semester" value = "Spring">
+                                            {% if plan_value.0 != '' %}
+                                                <button type = "submit" class = "x"  ><img class = "x_img" src="{% static 'img/x.svg.png' %}"></button>
+                                            {% endif %}
+                                        </form>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            
+            <div class="year-container">
+                <p class="yearlabelbottom">Year 3</p>
+                <div class="inner-box" id="year_3_plan_a">
+                    <div class="fall-box3">
+                        <p class="semesterlabel">Fall</p>
+                        {% for sort_key, sort_value in sort.items %}
+                            {% for plan_key, plan_value in planA.items %}
+                                {% if sort_value > 27 and sort_value < 35 and plan_key == sort_key %}
+                                    <div class="division">{{ plan_value.2 }}
+                                        <form method = "post">
+                                            {% csrf_token %}
+                                            <input type = hidden name = "plan" value = "A" />
+                                            <input type = hidden name = "course" value = "{{ plan_value.0 }}">
+                                            <input type = hidden name = "semester" value = "Fall">
+                                            {% if plan_value.0 != '' %}
+                                                <button type = "submit" class = "x"  ><img class = "x_img" src="{% static 'img/x.svg.png' %}"></button>
+                                            {% endif %}
+                                        </form>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        {% endfor %}
+                    </div>
+                    <div class="spring-box3">
+                        <p class="semesterlabel">Spring</p>
+                        {% for sort_key, sort_value in sort.items %}
+                            {% for plan_key, plan_value in planA.items %}
+                                {% if sort_value > 34 and sort_value < 42 and plan_key == sort_key %}
+                                    <div class="division">{{ plan_value.2 }}
+                                        <form method = "post">
+                                            {% csrf_token %}
+                                            <input type = hidden name = "plan" value = "A" />
+                                            <input type = hidden name = "course" value = "{{ plan_value.0 }}">
+                                            <input type = hidden name = "semester" value = "Spring">
+                                            {% if plan_value.0 != '' %}
+                                                <button type = "submit" class = "x"  ><img class = "x_img" src="{% static 'img/x.svg.png' %}"></button>
+                                            {% endif %}
+                                        </form>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="year-container">
+                <p class="yearlabelbottom">Year 4</p>
+                <div class="inner-box" id="year_4_plan_a">
+                    <div class="fall-box4">
+                        <p class="semesterlabel">Fall</p>
+                        {% for sort_key, sort_value in sort.items %}
+                            {% for plan_key, plan_value in planA.items %}
+                                {% if sort_value > 41 and sort_value < 49 and plan_key == sort_key %}
+                                    <div class="division">{{ plan_value.2 }}
+                                        <form method = "post">
+                                            {% csrf_token %}
+                                            <input type = hidden name = "plan" value = "A" />
+                                            <input type = hidden name = "course" value = "{{ plan_value.0 }}">
+                                            <input type = hidden name = "semester" value = "Fall">
+                                            {% if plan_value.0 != '' %}
+                                                <button type = "submit" class = "x"  ><img class = "x_img" src="{% static 'img/x.svg.png' %}"></button>
+                                            {% endif %}
+                                        </form>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        {% endfor %}
+                    </div>
+                    <div class="spring-box4">
+                        <p class="semesterlabel">Spring</p>
+                        {% for sort_key, sort_value in sort.items %}
+                            {% for plan_key, plan_value in planA.items %}
+                                {% if sort_value > 48 and sort_value < 56 and plan_key == sort_key %}
+                                    <div class="division">{{ plan_value.2 }}
+                                        <form method = "post">
+                                            {% csrf_token %}
+                                            <input type = hidden name = "plan" value = "A" />
+                                            <input type = hidden name = "course" value = "{{ plan_value.0 }}">
+                                            <input type = hidden name = "semester" value = "Spring">
+                                            {% if plan_value.0 != '' %}
+                                                <button type = "submit" class = "x"  ><img class = "x_img" src="{% static 'img/x.svg.png' %}"></button>
+                                            {% endif %}
+                                        </form>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="Plan_B" class="tabcontent">
+        <div class="outer-box">
+            <div class="year-container">
+                <p class="yearlabeltop">Year 1</p>
+                <div class="inner-box" id="year_1_plan_a">
+                    <div class="fall-box1">
+                        <p class="semesterlabel">Fall</p>
+                        {% for sort_key, sort_value in sort.items %}
+                            {% for plan_key, plan_value in planB.items %}
+                                {% if sort_value < 7 and plan_key == sort_key %}
+                                    <div class="division">{{ plan_value.2 }}
+                                        <form method = "post">
+                                            {% csrf_token %}
+                                            <input type = hidden name = "plan" value = "B" />
+                                            <input type = hidden name = "course" value = "{{ plan_value.0 }}">
+                                            <input type = hidden name = "semester" value = "Fall">
+                                            {% if plan_value.0 != '' %}
+                                                <button type = "submit" class = "x"  ><img class = "x_img" src="{% static 'img/x.svg.png' %}"></button>
+                                            {% endif %}
+                                        </form>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        {% endfor %}
+                    </div>
+                    <div class="spring-box1">
+                        <p class="semesterlabel">Spring</p>
+                        {% for sort_key, sort_value in sort.items %}
+                            {% for plan_key, plan_value in planB.items %}
+                                {% if sort_value > 6 and sort_value < 14 and plan_key == sort_key %}
+                                    <div class="division">{{ plan_value.2 }}
+                                        <form method = "post">
+                                            {% csrf_token %}
+                                            <input type = hidden name = "plan" value = "B" />
+                                            <input type = hidden name = "course" value = "{{ plan_value.0 }}">
+                                            <input type = hidden name = "semester" value = "Spring">
+                                            {% if plan_value.0 != '' %}
+                                                <button type = "submit" class = "x"  ><img class = "x_img" src="{% static 'img/x.svg.png' %}"></button>
+                                            {% endif %}
+                                        </form>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="year-container">
+                <p class="yearlabeltop">Year 2</p>
+                <div class="inner-box" id="year_2_plan_a">
+                    <div class="fall-box2">
+                        <p class="semesterlabel">Fall</p>
+                        {% for sort_key, sort_value in sort.items %}
+                            {% for plan_key, plan_value in planB.items %}
+                                {% if sort_value > 13 and sort_value < 21 and plan_key == sort_key %}
+                                    <div class="division">{{ plan_value.2 }}
+                                        <form method = "post">
+                                            {% csrf_token %}
+                                            <input type = hidden name = "plan" value = "B" />
+                                            <input type = hidden name = "course" value = "{{ plan_value.0 }}">
+                                            <input type = hidden name = "semester" value = "Fall">
+                                            {% if plan_value.0 != '' %}
+                                                <button type = "submit" class = "x"  ><img class = "x_img" src="{% static 'img/x.svg.png' %}"></button>
+                                            {% endif %}
+                                        </form>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        {% endfor %}
+                    </div>
+                    <div class="spring-box2">
+                        <p class="semesterlabel">Spring</p>
+                        {% for sort_key, sort_value in sort.items %}
+                            {% for plan_key, plan_value in planB.items %}
+                                {% if sort_value > 20 and sort_value < 28 and plan_key == sort_key %}
+                                    <div class="division">{{ plan_value.2 }}
+                                        <form method = "post">
+                                            {% csrf_token %}
+                                            <input type = hidden name = "plan" value = "B" />
+                                            <input type = hidden name = "course" value = "{{ plan_value.0 }}">
+                                            <input type = hidden name = "semester" value = "Spring">
+                                            {% if plan_value.0 != '' %}
+                                                <button type = "submit" class = "x"  ><img class = "x_img" src="{% static 'img/x.svg.png' %}"></button>
+                                            {% endif %}
+                                        </form>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            
+            <div class="year-container">
+                <p class="yearlabelbottom">Year 3</p>
+                <div class="inner-box" id="year_3_plan_a">
+                    <div class="fall-box3">
+                        <p class="semesterlabel">Fall</p>
+                        {% for sort_key, sort_value in sort.items %}
+                            {% for plan_key, plan_value in planB.items %}
+                                {% if sort_value > 27 and sort_value < 35 and plan_key == sort_key %}
+                                    <div class="division">{{ plan_value.2 }}
+                                        <form method = "post">
+                                            {% csrf_token %}
+                                            <input type = hidden name = "plan" value = "B" />
+                                            <input type = hidden name = "course" value = "{{ plan_value.0 }}">
+                                            <input type = hidden name = "semester" value = "Fall">
+                                            {% if plan_value.0 != '' %}
+                                                <button type = "submit" class = "x"  ><img class = "x_img" src="{% static 'img/x.svg.png' %}"></button>
+                                            {% endif %}
+                                        </form>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        {% endfor %}
+                    </div>
+                    <div class="spring-box3">
+                        <p class="semesterlabel">Spring</p>
+                        {% for sort_key, sort_value in sort.items %}
+                            {% for plan_key, plan_value in planB.items %}
+                                {% if sort_value > 34 and sort_value < 42 and plan_key == sort_key %}
+                                    <div class="division">{{ plan_value.2 }}
+                                        <form method = "post">
+                                            {% csrf_token %}
+                                            <input type = hidden name = "plan" value = "B" />
+                                            <input type = hidden name = "course" value = "{{ plan_value.0 }}">
+                                            <input type = hidden name = "semester" value = "Spring">
+                                            {% if plan_value.0 != '' %}
+                                                <button type = "submit" class = "x"  ><img class = "x_img" src="{% static 'img/x.svg.png' %}"></button>
+                                            {% endif %}
+                                        </form>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="year-container">
+                <p class="yearlabelbottom">Year 4</p>
+                <div class="inner-box" id="year_4_plan_a">
+                    <div class="fall-box4">
+                        <p class="semesterlabel">Fall</p>
+                        {% for sort_key, sort_value in sort.items %}
+                            {% for plan_key, plan_value in planB.items %}
+                                {% if sort_value > 41 and sort_value < 49 and plan_key == sort_key %}
+                                    <div class="division">{{ plan_value.2 }}
+                                        <form method = "post">
+                                            {% csrf_token %}
+                                            <input type = hidden name = "plan" value = "B" />
+                                            <input type = hidden name = "course" value = "{{ plan_value.0 }}">
+                                            <input type = hidden name = "semester" value = "Spring">
+                                            {% if plan_value.0 != '' %}
+                                                <button type = "submit" class = "x"  ><img class = "x_img" src="{% static 'img/x.svg.png' %}"></button>
+                                            {% endif %}
+                                        </form>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        {% endfor %}
+                    </div>
+                    <div class="spring-box4">
+                        <p class="semesterlabel">Spring</p>
+                        {% for sort_key, sort_value in sort.items %}
+                            {% for plan_key, plan_value in planB.items %}
+                                {% if sort_value > 48 and sort_value < 56 and plan_key == sort_key %}
+                                    <div class="division">{{ plan_value.2 }}
+                                        <form method = "post">
+                                            {% csrf_token %}
+                                            <input type = hidden name = "plan" value = "B" />
+                                            <input type = hidden name = "course" value = "{{ plan_value.0 }}">
+                                            <input type = hidden name = "semester" value = "Spring">
+                                            {% if plan_value.0 != '' %}
+                                                <button type = "submit" class = "x"  ><img class = "x_img" src="{% static 'img/x.svg.png' %}"></button>
+                                            {% endif %}
+                                        </form>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="Plan_C" class="tabcontent">
+        <div class="outer-box">
+            <div class="year-container">
+                <p class="yearlabeltop">Year 1</p>
+                <div class="inner-box" id="year_1_plan_a">
+                    <div class="fall-box1">
+                        <p class="semesterlabel">Fall</p>
+                        {% for sort_key, sort_value in sort.items %}
+                            {% for plan_key, plan_value in planC.items %}
+                                {% if sort_value < 7 and plan_key == sort_key %}
+                                    <div class="division">{{ plan_value.2 }}
+                                        <form method = "post">
+                                            {% csrf_token %}
+                                            <input type = hidden name = "plan" value = "C" />
+                                            <input type = hidden name = "course" value = "{{ plan_value.0 }}">
+                                            <input type = hidden name = "semester" value = "Fall">
+                                            {% if plan_value.0 != '' %}
+                                                <button type = "submit" class = "x"  ><img class = "x_img" src="{% static 'img/x.svg.png' %}"></button>
+                                            {% endif %}
+                                        </form>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        {% endfor %}
+                    </div>
+                    <div class="spring-box1">
+                        <p class="semesterlabel">Spring</p>
+                        {% for sort_key, sort_value in sort.items %}
+                            {% for plan_key, plan_value in planC.items %}
+                                {% if sort_value > 6 and sort_value < 14 and plan_key == sort_key %}
+                                    <div class="division">{{ plan_value.2 }}
+                                        <form method = "post">
+                                            {% csrf_token %}
+                                            <input type = hidden name = "plan" value = "C" />
+                                            <input type = hidden name = "course" value = "{{ plan_value.0 }}">
+                                            <input type = hidden name = "semester" value = "Spring">
+                                            {% if plan_value.0 != '' %}
+                                                <button type = "submit" class = "x"  ><img class = "x_img" src="{% static 'img/x.svg.png' %}"></button>
+                                            {% endif %}
+                                        </form>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="year-container">
+                <p class="yearlabeltop">Year 2</p>
+                <div class="inner-box" id="year_2_plan_a">
+                    <div class="fall-box2">
+                        <p class="semesterlabel">Fall</p>
+                        {% for sort_key, sort_value in sort.items %}
+                            {% for plan_key, plan_value in planC.items %}
+                                {% if sort_value > 13 and sort_value < 21 and plan_key == sort_key %}
+                                    <div class="division">{{ plan_value.2 }}
+                                        <form method = "post">
+                                            {% csrf_token %}
+                                            <input type = hidden name = "plan" value = "C" />
+                                            <input type = hidden name = "course" value = "{{ plan_value.0 }}">
+                                            <input type = hidden name = "semester" value = "Fall">
+                                            {% if plan_value.0 != '' %}
+                                                <button type = "submit" class = "x"  ><img class = "x_img" src="{% static 'img/x.svg.png' %}"></button>
+                                            {% endif %}
+                                        </form>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        {% endfor %}
+                    </div>
+                    <div class="spring-box2">
+                        <p class="semesterlabel">Spring</p>
+                        {% for sort_key, sort_value in sort.items %}
+                            {% for plan_key, plan_value in planC.items %}
+                                {% if sort_value > 20 and sort_value < 28 and plan_key == sort_key %}
+                                    <div class="division">{{ plan_value.2 }}
+                                        <form method = "post">
+                                            {% csrf_token %}
+                                            <input type = hidden name = "plan" value = "C" />
+                                            <input type = hidden name = "course" value = "{{ plan_value.0 }}">
+                                            <input type = hidden name = "semester" value = "Spring">
+                                            {% if plan_value.0 != '' %}
+                                                <button type = "submit" class = "x"  ><img class = "x_img" src="{% static 'img/x.svg.png' %}"></button>
+                                            {% endif %}
+                                        </form>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            
+            <div class="year-container">
+                <p class="yearlabelbottom">Year 3</p>
+                <div class="inner-box" id="year_3_plan_a">
+                    <div class="fall-box3">
+                        <p class="semesterlabel">Fall</p>
+                        {% for sort_key, sort_value in sort.items %}
+                            {% for plan_key, plan_value in planC.items %}
+                                {% if sort_value > 27 and sort_value < 35 and plan_key == sort_key %}
+                                    <div class="division">{{ plan_value.2 }}
+                                        <form method = "post">
+                                            {% csrf_token %}
+                                            <input type = hidden name = "plan" value = "C" />
+                                            <input type = hidden name = "course" value = "{{ plan_value.0 }}">
+                                            <input type = hidden name = "semester" value = "Fall">
+                                            {% if plan_value.0 != '' %}
+                                                <button type = "submit" class = "x"  ><img class = "x_img" src="{% static 'img/x.svg.png' %}"></button>
+                                            {% endif %}
+                                        </form>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        {% endfor %}
+                    </div>
+                    <div class="spring-box3">
+                        <p class="semesterlabel">Spring</p>
+                        {% for sort_key, sort_value in sort.items %}
+                            {% for plan_key, plan_value in planC.items %}
+                                {% if sort_value > 34 and sort_value < 42 and plan_key == sort_key %}
+                                    <div class="division">{{ plan_value.2 }}
+                                        <form method = "post">
+                                            {% csrf_token %}
+                                            <input type = hidden name = "plan" value = "C" />
+                                            <input type = hidden name = "course" value = "{{ plan_value.0 }}">
+                                            <input type = hidden name = "semester" value = "Spring">
+                                            {% if plan_value.0 != '' %}
+                                                <button type = "submit" class = "x"  ><img class = "x_img" src="{% static 'img/x.svg.png' %}"></button>
+                                            {% endif %}
+                                        </form>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="year-container">
+                <p class="yearlabelbottom">Year 4</p>
+                <div class="inner-box" id="year_4_plan_a">
+                    <div class="fall-box4">
+                        <p class="semesterlabel">Fall</p>
+                        {% for sort_key, sort_value in sort.items %}
+                            {% for plan_key, plan_value in planC.items %}
+                                {% if sort_value > 41 and sort_value < 49 and plan_key == sort_key %}
+                                    <div class="division">{{ plan_value.2 }}
+                                        <form method = "post">
+                                            {% csrf_token %}
+                                            <input type = hidden name = "plan" value = "C" />
+                                            <input type = hidden name = "course" value = "{{ plan_value.0 }}">
+                                            <input type = hidden name = "semester" value = "Fall">
+                                            {% if plan_value.0 != '' %}
+                                                <button type = "submit" class = "x"  ><img class = "x_img" src="{% static 'img/x.svg.png' %}"></button>
+                                            {% endif %}
+                                        </form>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        {% endfor %}
+                    </div>
+                    <div class="spring-box4">
+                        <p class="semesterlabel">Spring</p>
+                        {% for sort_key, sort_value in sort.items %}
+                            {% for plan_key, plan_value in planC.items %}
+                                {% if sort_value > 48 and sort_value < 56 and plan_key == sort_key %}
+                                    <div class="division">{{ plan_value.2 }}
+                                        <form method = "post">
+                                            {% csrf_token %}
+                                            <input type = hidden name = "plan" value = "C" />
+                                            <input type = hidden name = "course" value = "{{ plan_value.0 }}">
+                                            <input type = hidden name = "semester" value = "Spring">
+                                            {% if plan_value.0 != '' %}
+                                                <button type = "submit" class = "x"  ><img class = "x_img" src="{% static 'img/x.svg.png' %}"></button>
+                                            {% endif %}
+                                        </form>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+    <script>
+        function openPlan(evt, planName) {
+            // Declare all variables
+            var i, tabcontent, tablinks;
+
+            // Get all elements with class="tabcontent" and hide them
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+
+            // Get all elements with class="tablinks" and remove the class "active"
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+
+            // Show the current tab, and add an "active" class to the button that opened the tab
+            document.getElementById(planName).style.display = "block";
+            evt.currentTarget.className += " active";
+
+
+            }   
+        // Get the element with id="defaultOpen" and click on it
+        document.getElementById("defaultOpen").click();
+
+    </script>
+
+    <!--<script>
+        function removeCourse(courseCode, divisionId) {
+            fetch(`/remove/`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': '{{ csrf_token }}'
+                },
+                body: JSON.stringify({ course_code: courseCode })
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Remove the division from the DOM
+                    var element = document.getElementById(divisionId);
+                    element.parentNode.removeChild(element);
+                } else {
+                    console.error('Failed to remove course');
+                }
+            })
+            .catch(error => {
+                console.error('Error removing course:', error);
+            });
+        }
+    </script>-->
+
+</body>
+</html>

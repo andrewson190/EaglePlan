@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Profile</title>
+</head>
+<body>
+    <h1>Welcome, {{ student.username }}</h1>
+    <h2>Student Information</h2>
+    <ul>
+        <li><strong>Major:</strong> {{ student.major }}</li>
+        <li><strong>Major II:</strong> {{ student.major_ii }}</li>
+        <li><strong>Minor:</strong> {{ student.minor }}</li>
+        <li><strong>Minor II:</strong> {{ student.minor_ii }}</li>
+        <li><strong>Classes Taken:</strong> {{ student.classes_taken }}</li>
+        <li><strong>Classes Selected:</strong> {{ student.classes_selected }}</li>
+        <li><strong>Total Credits:</strong> {{ student.total_credits }}</li>
+        <li><strong>Credits Needed:</strong> {{ student.credits_needed }}</li>
+    </ul>
+</body>
+</html>

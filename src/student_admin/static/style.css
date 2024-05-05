@@ -1,0 +1,266 @@
+body{
+    transform: scale(1);
+    transform-origin: top left;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+
+.admin-page {
+  background-color: #edebdb66;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.admin-page .overlap-wrapper {
+  background-color: #edebdb66;
+  width: 100%;
+  height: 100%;
+}
+
+.admin-page .overlap {
+  position: relative;
+  height: 1024px;
+}
+
+.admin-page .overlap-group {
+  position: absolute;
+  width: 150px;
+  height: 50px;
+  top: 476px;
+  left: 392px;
+  background-image: url(./img/rectangle-102.png);
+  background-size: 100% 100%;
+}
+
+.admin-page .element {
+  position: absolute;
+  width: 65px;
+  height: 22px;
+  top: 12px;
+  left: 43px;
+}
+
+.admin-page .fall-wrapper {
+  position: absolute;
+  width: 150px;
+  height: 25px;
+  top: 580px;
+  left: 504px;
+  background-image: url(./img/rectangle-102.png);
+  background-size: 100% 100%;
+}
+
+.admin-page .fall {
+  position: absolute;
+  width: 42px;
+  height: 23px;
+  top: 12px;
+  left: 54px;
+}
+
+.admin-page .div {
+    display: block;
+    justify-content: center; /* Centers the form horizontally */
+    align-items: center; /* Centers the form vertically */
+    height: 100vh; /* Full height of the viewport */
+    width: 100vw; /* Full width of the viewport */
+}
+
+form {
+    position:relative;
+    width: 350px; /* Example width for the form */
+    padding: 20px; /* Example padding for the form */
+    left: 12.5%;
+    top: 22%;
+    margin-bottom: 150px;
+    margin-right: 20px;
+}
+
+select {
+    width: 100%;  /* Make the dropdown full width of its container */
+    height: 40px; /* Set the height of the dropdown */
+    padding: 5px; /* Add padding inside the dropdown */
+    border: 1px solid #ccc; /* Set a border */
+    border-radius: 4px; /* Add rounded corners */
+    background-color: #f9f9f9; /* Set a background color */
+    color: #333; /* Set text color */
+}
+
+input[type="submit"] {
+    border: none;
+    color: #fff;
+    font-family: Roboto;
+    padding: 5px 10px; /* Increase padding for bigger button */
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #8a0f0a;
+    transition: background-color 0.3s;
+}
+
+ul {
+    margin-left: 100px;
+    position:relative;
+    font-family: Roboto;
+    font-size: 20px;
+}
+
+.course-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 1160px; /* Adjust width as needed */
+    height: 350px; /* Adjust height as needed */
+    border: 1px solid #ccc;
+    margin: 10px 20px 10px 20px; /* Adjust margin as needed (top, right, bottom, left) */
+    padding: 10px; /* Adjust padding as needed */
+    text-align: center;
+}
+
+.row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.scroll-container {
+    position: relative;
+    width: 100%; /* Set the width of the container */
+    height: 100%; /* Set the height of the container */
+    margin: 10px 20px 10px 20px; /* Adjust margin as needed (top, right, bottom, left) */
+
+    overflow: auto; /* Enable scrolling when content overflows */
+}
+
+.admin-page .rectangle {
+  width: 225px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: -5%;
+}
+
+.admin-page .img {
+  width: 100%;
+  height: 169px;
+  position: absolute;
+  top: -1%;
+  left: 0;
+}
+
+.admin-page .home {
+  position: absolute;
+  width: 57px;
+  height: 14px;
+  top: 192px;
+  left: 81px;
+}
+
+.admin-page .courses {
+  position: absolute;
+  width: 83px;
+  height: 15px;
+  top: 269px;
+  left: 78px;
+}
+
+.admin-page .students {
+  position: absolute;
+  width: 91px;
+  height: 15px;
+  top: 342px;
+  left: 78px;
+}
+
+.admin-page .teenyicons-home {
+  position: absolute;
+  width: 31px;
+  height: 30px;
+  top: 184px;
+  left: 21px;
+}
+
+.admin-page .mingcute-add-fill {
+  position: absolute;
+  width: 41px;
+  height: 39px;
+  top: 257px;
+  left: 16px;
+}
+
+.admin-page .advisor-dashboard {
+  position: absolute;
+  width: 636px;
+  height: 57px;
+  top: 54px;
+  left: 468px;
+}
+
+.admin-page .bc-logo {
+  position: absolute;
+  width: 149px;
+  height: 149px;
+  top: 15px;
+  left: 5px;
+  object-fit: cover;
+}
+
+.admin-page .welcome-baldwin {
+  position: absolute;
+  width: 757px;
+  height: 83px;
+  top: 216px;
+  left: 408px;
+}
+
+.admin-page .position-associate {
+  position: absolute;
+  width: 593px;
+  height: 35px;
+  top: 328px;
+  left: 494px;
+}
+
+.admin-page .department-computer {
+  position: absolute;
+  width: 626px;
+  height: 42px;
+  top: 385px;
+  left: 477px;
+}
+
+.admin-page .year {
+  position: absolute;
+  width: 101px;
+  height: 32px;
+  top: 474px;
+  left: 275px;
+}
+
+.admin-page .semester {
+  position: absolute;
+  width: 203px;
+  height: 33px;
+  top: 589px;
+  left: 277px;
+}
+
+.admin-page .course-counts {
+  position: absolute;
+  width: 230px;
+  height: 26px;
+  top: 754px;
+  left: 276px;
+}
+
+.admin-page .group {
+  position: absolute;
+  width: 258px;
+  height: 71px;
+  top: 674px;
+  left: 659px;
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'profile.css' %}">
+    <title>Profile</title>
+    {% include 'navbar.html' %}
+</head>
+<body>
+    <div class="profile">
+        <div class="div">
+            <div class="profilename">{{ student.user}}</div>
+            <div class="class">Class of {{ student.cohort}}</div>
+            <p class="p">Morrissey College of Arts and Sciences</p>
+            <div class="overlap">
+                <div class="text-wrapper-3">Name</div>
+                <div class= "first_name">{{ student.user}}</div> 
+                <div class="text-wrapper-4">Major I</div>
+                <div class="overlap-group">
+                    <a href="/register/student">
+                        <div class="rectangle"></div>
+                        <div class="text-wrapper-6">Edit</div>
+                    </a>
+                </div>
+                <div class="text-wrapper-8">Year</div>
+                <div class= "cohort">{{ student.cohort}}</div> 
+                <div class="rectangle-2"></div>
+                <div class="rectangle-3"></div>
+                <div class= "majori">{{ student.major }}</div>
+                <div class= "majorii">{{ student.major_ii}}</div>
+                <div class= "minori">{{ student.minor}}</div>
+                <div class= "minorii">{{ student.minor_ii}}</div>
+                <div class="rectangle-9"></div>
+                <div class="text-wrapper-9">Major II</div>
+                <div class="text-wrapper-10">Minor I</div>
+                <div class="text-wrapper-11">Minor II</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

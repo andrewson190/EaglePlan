@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  {% load static %}
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'navbar.css' %}" />
+  <style>
+
+  </style>
+</head>
+
+<div class="Nav-Bar">
+  
+  <a href="..">
+  <button class="Home-Button">
+      <img class="teenyicons-home" src="{% static 'img/home.png' %}" />
+      Home
+  </button>
+  </a>
+  
+  <a href="../course">
+    <button class="Courses-Button">
+        <img class="mingcute-add-fill" src="{% static 'img/plus.svg' %}" />
+        Courses
+    </button>
+  </a>
+
+  <a href="../plan">
+    <button class="Plan-Button">
+        <img class="icon-park-outline" src="{% static 'img/schedule.svg' %}" />
+        Plan
+    </button>
+  </a>
+  
+  <a href="../student/profile">
+    <button class="Profile-Button">
+      <img class="profilepic" src="{% static 'img/profile.png' %}" />
+      Profile
+    </button>
+  </a>
+
+  <button class="Logout-Button">
+    {% if user.is_authenticated %}
+        <a href="{% url 'logout_view' %}">Logout</a>
+    {% else %}
+      <a href="{% url 'login_view' %}">Login</a>
+    {% endif %}
+  </button>
+</div>

@@ -1,0 +1,94 @@
+body {
+  transform: scale(1);
+  transform-origin: top left;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.title{
+  position:absolute;
+  text-align:center;
+  top: 2vh;
+}
+
+.log-in .red-top {
+  position: relative;
+  width: 100%;
+  height: 50vh;
+  top: 0;
+  left: 0;
+  background-color: #8a0f0a;
+}
+
+.log-in .bottom-half {
+  position: relative;
+  width: 100%;
+  height: 50vh;
+  top: 0vh;
+  left: 0;
+  background-color: #edebdb;
+}
+
+.log-in .white-box {
+  position: absolute;
+  width: 40%;
+  height: 80%;
+  top: 57%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #ffffff;
+  border: 0px none;
+  box-shadow: 10px 4px 4px 15px #0000000d;
+  padding: 20px;
+}
+
+input[type="submit"] {
+  width: 100%;
+  height: 6vh;
+  background-color: #8a0f0a;
+  border-radius: 40px;
+  font-family: "Roboto", Helvetica;
+  font-weight: 400;
+  color: #ffffff;
+  font-size: 3vh;
+  cursor: pointer;
+}
+
+.EaglePlan {
+  position: absolute;
+  text-align: center;
+  width: 50%;
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: "Roboto", Helvetica;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 10vh;
+}
+
+form{
+  position: relative;
+  top: 5%;
+}
+
+.form-container {
+  width: 100%;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 10px;
+}
+
+.form-group label {
+  display: block;
+  text-align: center;
+}
+
+.title {
+  width: 100%;
+  height: 50vh;
+  top: 4vh;
+}

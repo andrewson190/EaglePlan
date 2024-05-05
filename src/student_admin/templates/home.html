@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'homelogin.css' %}">
+    <title>Log-In</title>
+</head>
+<body>
+    <div class="log-in">
+        <form class="login-form" method="post">
+            <div class="red-top"></div>
+            <div class="bottom-half"></div>
+            <div class="white-box"></div>
+            <div class="EaglePlan">EaglePlan</div>
+            <img class="logo" src="{% static 'img/BC.png' %}" />
+        </form>
+        {% load socialaccount %}
+        <a href="{% provider_login_url 'google' %}">
+            <button class="googleregister">Sign In with Google</button>  
+        </a>
+        <div>
+            <div class="Info">
+                Access to the Boston College technological and information resources is a privilege 
+                    available only to authorized individuals. This privilege requires that all users 
+                    be responsible for the protection of University resources and that all use be in 
+                    accordance with the 
+                    <a href="https://services.bc.edu/bc/common/common/SecurityAgreement.html">Boston College Technology Use Agreement.</a>  
+            </div>
+        </div>
+    </div>
+</body>
+</html>

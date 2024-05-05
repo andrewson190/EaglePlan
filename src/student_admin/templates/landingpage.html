@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  {% load static %}
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'landingpage.css' %}" />
+
+{% include 'navbar.html' %}
+<div class="landing-page">
+  <div class="majorbox">
+    <p class="major1-header">
+      <span class="span">Major I:<br /></span> <span class="major">{{student.major }}</span>
+    </p>
+    <p class="major2-header">
+      <span class="major"><br /></span>
+      <span class="span">Major II:<br /></span><span class="major">{{student.major_ii}}</span>
+    </p>
+    <p class="minor1-header">
+      <span class="major"><br /></span>
+      <span class="span">Minor I:<br /></span><span class="major">{{student.minor}}</span>
+    </p>
+    <p class="minor2-header">
+      <span class="major"><br /></span>
+      <span class="span">Minor II:<br /></span><span class="major">{{student.minor_ii}}</span>
+    </p>
+  </div>
+
+
+
+<div class="totalbox">
+  <div class="totalcredit-text">Total Credits</div>
+  <div class="circular-progress" data-inner-circle-color="#edebdb" data-percentage={{credits_percentage}} data-progress-color="#B29D6C" data-bg-color="#fff">
+    <div class="inner-circle"></div>
+    <p class="percentage">0%</p>
+  </div>
+  <body>Total Credits: {{total_credits_taken}}</body>
+</div>
+
+
+  <div class="majorprogressbox">
+    <div class="progress-text">Major Progress</div>
+    <div class="circular-progress" data-inner-circle-color="#edebdb" data-percentage={{major_percentage}} data-progress-color="#B29D6C" data-bg-color="#fff">
+      <div class="inner-circle"></div>
+      <p class="percentage">0%</p>
+    </div>
+    <body>Major Credits: {{majorI_credits}}</body>
+    <body>Major 2 Credits: {{majorII_credits}}</body>
+  </div>
+
+
+  <div class="minorprogressbox">
+    <div class="progress-text">Minor Progress</div>
+    <div class="circular-progress" data-inner-circle-color="#edebdb"  data-percentage={{minor_percentage}} data-progress-color="#B29D6C" data-bg-color="#fff">
+      <div class="inner-circle"></div>
+      <p class="percentage">50%</p>
+    </div>
+    <body>Minor Credits: {{minorI_credits}}</body>
+    <body>Minor 2 Credits: {{minorII_credits}}</body>
+  </div>
+
+  
+<div class="welcome-baldwin">Welcome, {{ student.user }}</div>
+  <a href="plan/">
+    <button class="div-wrapper"><p class="p">View + edit your plan</p></button>
+  </a>
+</div>
+
+</body>
+</html>
+
+<script>
+const circularProgress = document.querySelectorAll(".circular-progress");
+
+Array.from(circularProgress).forEach((progressBar) => {
+  const progressValue = progressBar.querySelector(".percentage");
+  const innerCircle = progressBar.querySelector(".inner-circle");
+  let startValue = 0,
+    endValue = Math.min(Number(progressBar.getAttribute("data-percentage")), 100), // Set endValue to the minimum of data-percentage and 100
+    speed = 50,
+    progressColor = progressBar.getAttribute("data-progress-color");
+
+  const progress = setInterval(() => {
+    startValue++;
+    if (startValue > endValue) {
+      startValue = endValue; // Limit startValue to endValue
+      clearInterval(progress); // Stop the progress animation
+    }
+    progressValue.textContent = `${startValue}%`;
+    progressValue.style.color = `${progressColor}`;
+
+    innerCircle.style.backgroundColor = `${progressBar.getAttribute(
+      "data-inner-circle-color"
+    )}`;
+
+    progressBar.style.background = `conic-gradient(${progressColor} ${
+      startValue * 3.6
+    }deg,${progressBar.getAttribute("data-bg-color")} 0deg)`;
+  }, speed);
+});
+</script>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="admin-page">
+        <div class="overlap-wrapper">
+            <div class="overlap">
+                <div class="div">
+                    <img class="rectangle" src="{% static 'img/rectangle-66.png' %}" />
+                    <img class="img" src="{% static 'img/rectangle-101.png' %}" />
+                    <img class="advisor-dashboard" src="{% static 'img/advisor-dashboard.png' %}" />
+                    <img class="bc-logo" src="{% static 'img/bc-logo-1.png' %}" />
+
+
+                        <form method="POST">
+                            {% csrf_token %}  <!-- CSRF token for security -->
+
+        <!-- Display the form fields -->
+                            {{ form.as_p }}
+
+        <!-- Submit button -->
+                            <input type="submit" value="Submit">
+                        </form>
+                    <div class="scroll-container">
+
+                        <ul>
+                            {% for course, data in counts.items %}
+        <!-- Unpack the list 'data' to get the course title and count -->
+                                <div class="course-box">
+                                    <li>Course: {{ course }} - Title: {{ data.1 }} - Count: {{ data.0 }}</li>
+                                </div>
+                            {% endfor %}
+                        </ul>
+                    </div>
+
+                    <!-- Add the form and course count list here -->
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

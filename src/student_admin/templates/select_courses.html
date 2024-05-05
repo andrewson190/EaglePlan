@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    {% load static %}
+    {% include 'navbar.html' %}
+    <link rel="stylesheet" href="{% static 'select_courses.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+      <p id = "search-label">Course Search:</p>
+      <p id = "plan-label">Select Plan:</p>
+      <p id = "sem-label">Select Year/Semester:</p>
+      <form role="search" class = "search-bar" method="GET" novalidate>
+        {% csrf_token %}
+        <input
+           class="form-control me-2"
+           type="search"
+           placeholder="Search"
+           name="search_query"
+           required aria-label="Search"
+        >
+        <button class="btn btn-outline-success" type="submit">Search</button>
+       </form>
+
+    <div class="dropdown-button">
+      <button class="btn btn-primary dropdown-toggle" type="button" id="departmentDropdownButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: #8a0f0a; border-color: #8a0f0a;">
+          <span id="selectedDepartment">Select Department</span>
+      </button>
+      <div class="dropdown-menu" aria-labelledby="departmentDropdownButton">
+          <a class="dropdown-item" href="#" onclick="selectDepartment('CSCI')">CSCI</a>
+          <a class="dropdown-item" href="#" onclick="selectDepartment('MATH')">MATH</a>
+      </div>
+  </div>
+
+  <form method="GET" id="departmentForm">
+    {% csrf_token %}
+    <select id="searchDept" name="searchDept" class="form-select" style="display: none;">
+        <option selected>Choose...</option>
+        <option>CSCI</option>
+        <option>MATH</option>
+    </select>
+</form>  
+
+
+
+      <form method = "post">
+        {% csrf_token %}
+        {{ form }}
+          <a href="./unlisted/">
+              <p class="unlisted_courses_btn">Add Unlisted Course</p>
+          </a>
+ 
+    
+</div>
+<div class="container">
+        <div class="course-container" style="margin-top: 50px;">
+                {% csrf_token %}
+                {% for course in searched_courses %}
+                        <div class="course-box">
+                            <div class="row">
+                                <div class="course-code">{{ course.course_code }}</div> <!-- Course code -->
+                                <div class="course-title">{{ course.title }}</div> <!-- Course title -->
+                            </div>
+                            <div class="row">
+                                <div class="course-description">{{ course.description }}</div> <!-- Course description -->
+                            </div>
+                            <div class="row">
+                                    <button class="select-button" name='select' value = "{{ course.course_code }}" onclick="selectCourse('{{ key }}')">Select</button>
+                            </div>
+                        </div>
+
+                {% endfor %}
+            </form>
+        </div>
+    </div>
+<script>
+  if ('{{ message }}' != "no error"){
+    alert('{{ message }}');
+  }
+  document.addEventListener('DOMContentLoaded', function () {
+  const content = document.querySelector('.course-container'); 
+  const itemsPerPage = 10; // set number of items per page
+  let currentPage = 0;
+  const items = Array.from(content.getElementsByClassName("course-box")).slice(0); // tag name set to section and slice set to 0
+
+function showPage(page) {
+  const startIndex = page * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  items.forEach((item, index) => {
+    item.classList.toggle('hidden', index < startIndex || index >= endIndex);
+  });
+  updateActiveButtonStates();
+}
+
+function createPageButtons() {
+  const totalPages = Math.ceil(items.length / itemsPerPage);
+  const paginationContainer = document.createElement('div');
+  paginationContainer.classList.add('pagination');
+  document.body.appendChild(paginationContainer);
+
+  // Add backward arrow button
+  const backwardButton = document.createElement('button');
+  backwardButton.textContent = '◄';
+  backwardButton.addEventListener('click', () => {
+    if (currentPage > 0) {
+      currentPage--;
+      showPage(currentPage);
+      updateActiveButtonStates();
+      backwardButton.classList.add('active'); // Add class to indicate active state
+      forwardButton.classList.remove('active'); // Remove class from forward button
+    }
+  });
+  paginationContainer.appendChild(backwardButton);
+
+  // Add forward arrow button
+  const forwardButton = document.createElement('button');
+  forwardButton.textContent = '►';
+  forwardButton.addEventListener('click', () => {
+    if (currentPage < totalPages - 1) {
+      currentPage++;
+      showPage(currentPage);
+      updateActiveButtonStates();
+      forwardButton.classList.add('active'); // Add class to indicate active state
+      backwardButton.classList.remove('active'); // Remove class from backward button
+    }
+  });
+  paginationContainer.appendChild(forwardButton);
+
+  updateActiveButtonStates();
+}
+
+
+function updateActiveButtonStates() {
+  const pageButtons = document.querySelectorAll('.pagination button');
+  pageButtons.forEach((button, index) => {
+    if (index === currentPage) {
+      button.classList.add('active');
+    } else {
+      button.classList.remove('active');
+    }
+  });
+}
+
+  createPageButtons(); // Call this function to create the page buttons initially
+  showPage(currentPage);
+});
+
+function selectDepartment(department) {
+  document.getElementById("selectedDepartment").innerText = department;
+  document.getElementById("searchDept").value = department;
+  document.getElementById("departmentForm").submit();
+}
+
+function submitForm() {
+    document.getElementById("departmentForm").submit();
+}
+</script>
+</body>
+</html>

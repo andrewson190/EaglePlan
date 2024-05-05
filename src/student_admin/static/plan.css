@@ -1,0 +1,183 @@
+.content-container {
+    margin-left: 200px; /* Adjust margin-left as needed */
+}
+h1 {
+    margin-left: 20px; /* Adjust margin-left for the title as needed */
+}
+
+.x {
+    position: absolute;
+    padding: 0;
+    border: none;
+    padding: none;
+
+
+}
+
+img{
+    position: absolute;
+    width: 2vh;
+    left: 36vh;
+    top: -2.5vh;
+}
+.outer-box {
+    position: fixed;
+    background-color: #edebdb;
+    border-radius: 20px;
+    padding: 20px;
+    left: 30vh;
+    top: 10vh;
+    width: 80%; /* Adjust the size as needed */
+    height: 85%;
+    margin: 0 auto;
+    border: 1px solid #f1f1f1;
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+
+.yearlabel {
+    position: relative;
+    text-align: center;
+    left: 10px; /* Adjust the left position as needed */
+    padding-bottom: 0;
+    font-family: Roboto;
+    font-weight: bold;
+    font-size: 25px;
+    color: #8a0f0a;
+}
+
+
+.inner-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1vh;
+    height: 20vh;
+}
+
+
+
+.fall-box1 {
+    position: absolute;
+    padding: 10px;
+    top: 5vh;
+    left: 0vh;
+}
+
+.spring-box1 {
+    position: absolute;
+    padding: 10px;
+    top: 5vh;
+    left: 40vh;
+}
+
+.fall-box2 {
+    position: absolute;
+    padding: 10px;
+    top: 5vh;
+    left: 84vh;
+}
+
+.spring-box2 {
+    position: absolute;
+    padding: 10px;
+    top: 5vh;
+    left: 124vh;
+}
+
+.fall-box3 {
+    position: absolute;
+    padding: 10px;
+    top: 48vh;
+    left: 0vh;
+}
+
+.spring-box3 {
+    position: absolute;
+    padding: 10px;
+    top: 48vh;
+    left: 40vh;
+}
+
+.fall-box4 {
+    position: absolute;
+    padding: 10px;
+    top: 48vh;
+    left: 84vh;
+}
+
+.spring-box4 {
+    position: absolute;
+    padding: 10px;
+    top: 48vh;
+    left: 124vh;
+}
+
+
+.division {
+    background-color: lightgray;
+    border-radius: 5px;
+    padding: 0.5vh;
+    width: 35vh;
+    margin-bottom: 0.5vh; /* Add margin between divisions */
+    font-family: Roboto;
+} 
+
+
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+    position: absolute;
+    width: 30vh;
+    left: 40vh; 
+    top: 4.1vh;
+    font-family: Roboto;
+  }
+  
+  /* Style the buttons that are used to open the tab content */
+  .tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+  }
+  
+  /* Change background color of buttons on hover */
+  .tab button:hover {
+    background-color: #ddd;
+  }
+  
+  /* Create an active/current tablink class */
+  .tab button.active {
+    background-color: #ccc;
+  }
+
+  .yearlabeltop {
+    position: relative;
+    text-align: center;
+    left: 0vh; /* Adjust the left position as needed */
+    padding-bottom: 0;
+    font-family: Roboto;
+    font-weight: bold;
+    top: -2vh;
+}
+
+.yearlabelbottom {
+    position: relative;
+    text-align: center;
+    left: 10px; /* Adjust the left position as needed */
+    padding-bottom: 0;
+    font-family: Roboto;
+    font-weight: bold;
+    top: -2vh;
+}
+
+.semesterlabel {
+    font-weight: bold;
+    font-family: Roboto;
+}
